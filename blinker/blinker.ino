@@ -25,7 +25,10 @@ void setup()
 
 void loop()
 {
-    Serial.println(buttonState);
-    blinkLed();   
     updateButton();
+
+    if(buttonState)
+    {
+        blinkLed();   
+    }
 }
