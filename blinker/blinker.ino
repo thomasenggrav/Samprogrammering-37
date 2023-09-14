@@ -1,4 +1,12 @@
 const int ledPin = 13;
+const int BUTTON_PIN = 2;
+
+bool buttonState = false;
+
+void updateButton()
+{
+    buttonState = digitalRead(BUTTON_PIN);
+}
 
 void blinkLed()
 {
@@ -11,10 +19,13 @@ void blinkLed()
 void setup()
 {
     pinMode(ledPin, OUTPUT);
+    pinMode(BUTTON_PIN, INPUT);
     Serial.begin(9600);
 }
 
 void loop()
 {
+    Serial.println(buttonState);
     blinkLed();   
+    updateButton();
 }
